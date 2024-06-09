@@ -92,7 +92,7 @@ workflows:
               only: main
       - build:
           requires:
-            - build
+            - test
         filters:
           branches:
             only: main
