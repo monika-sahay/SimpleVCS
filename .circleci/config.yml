@@ -37,8 +37,6 @@ jobs:
           command: |
             pip install .
             SimpleVCS init /tmp/repo
-            SimpleVCS commit /tmp/repo "Initial commit"
-            SimpleVCS log /tmp/repo
 
   deploy:
     docker:
