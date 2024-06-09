@@ -7,19 +7,22 @@ def parse_requirements(filename):
     return [line.strip() for line in lines if line and not line.startswith('#')]
 
 
-instal_requires = parse_requirements('requirements.txt')
-
+install_requires = parse_requirements('requirements.txt')
+dev_requires = parse_requirements('dev-requirements.txt')
 
 setup(
     name='simplevcs',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
             'SimpleVCS = simplevcs.SimpleVCS:main',
         ],
     },
-    install_requires=instal_requires,
+    install_requires=install_requires,
+    extras_require={
+        'dev': dev_requires,
+    },
     author='Monika Monika',
     author_email='monika_sahay@yahoo.com',
     description='A minimalistic version control system',

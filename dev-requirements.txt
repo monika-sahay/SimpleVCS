@@ -1,0 +1,17 @@
+# dev-requirements.txt
+backports.tarfile>=1.2.0
+docutils>=0.21.2
+jaraco.classes>=3.4.0
+jaraco.context>=5.3.0
+jaraco.functools>=4.0.1
+keyring>=25.2.1
+markdown-it-py>=3.0.0
+mdurl>=0.1.2
+pkginfo>=1.11.0
+Pygments>=2.18.0
+pywin32-ctypes>=0.2.2
+readme_renderer>=43.0
+requests-toolbelt>=1.0.0
+rfc3986>=2.0.0
+twine>=5.1.0
+types-setuptools>=70.0.0.20240524

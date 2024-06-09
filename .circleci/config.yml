@@ -30,6 +30,10 @@ jobs:
           command: |
             pip install -r requirements.txt
       - run:
+          name: Install development dependencies
+          command: |
+            pip install -r dev-requirements.txt
+      - run:
           name: Build package
           command: python setup.py sdist bdist_wheel
       - run:
