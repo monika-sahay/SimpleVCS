@@ -1,14 +1,11 @@
-# Couldn't automatically generate a config from your source code.
-# This is a generic template to serve as a base for your custom config
-# See: https://circleci.com/docs/configuration-reference
 version: 2.1
+
 jobs:
   test:
     docker:
       - image: circleci/python:3.9
     steps:
       - checkout
-      # Replace this with a real test runner invocation
       - run:
           name: install dependencies
           command: |
@@ -23,6 +20,7 @@ jobs:
           name: Run pytest
           command: |
             pytest tests/
+
   build:
     docker:
       - image: circleci/python:3.9
@@ -53,3 +51,12 @@ jobs:
           command: python3 -m twine upload dist/* --username __token__ --password $PYPI_TOKEN
           environment:
             PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main
