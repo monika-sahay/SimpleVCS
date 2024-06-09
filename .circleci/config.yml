@@ -54,6 +54,12 @@ jobs:
           command: |
             pip install -r requirements.txt
       - run:
+          name: Build package
+          command: python setup.py sdist bdist_wheel
+      - run:
+          name: Install package
+          command: pip install .
+      - run:
           name: Deploy to TestPyPI
           command: python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* --username __token__ --password $TEST_PYPI_TOKEN
           environment:
