@@ -82,7 +82,10 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
+      - test
       - build:
+          requires:
+            - build
           filters:
             branches:
               only: main
