@@ -1,3 +1,12 @@
+# pylint: disable=C0103
+
+"""
+simple_vcs.py
+
+A minimalistic version control system.
+"""
+
+
 import os
 # import hashlib
 # import json
@@ -5,7 +14,7 @@ import os
 import argparse
 
 
-class SimpleVCS:
+class SimpleVCS:  # pylint: disable=too-few-public-methods
     """
     A simple version control system class.
     """

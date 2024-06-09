@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'SimpleVCS = simplevcs.SimpleVCS:main',
+            'SimpleVCS = simplevcs.simple_vcs:main',
         ],
     },
     install_requires=install_requires,
