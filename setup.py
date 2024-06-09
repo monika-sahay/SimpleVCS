@@ -12,7 +12,7 @@ dev_requires = parse_requirements('dev-requirements.txt')
 
 setup(
     name='simplevcs',
-    version='0.1.2',
+    version='0.1.1',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
