@@ -2,7 +2,7 @@ import unittest
 import os
 import shutil
 import tempfile
-from simplevcs.SimpleVCS import SimpleVCS
+from simplevcs.simple_vcs import SimpleVCS
 
 
 class TestSimpleVCSInitialization(unittest.TestCase):
