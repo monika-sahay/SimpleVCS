@@ -58,11 +58,11 @@ jobs:
           command: python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* --username __token__ --password $TEST_PYPI_TOKEN
           environment:
             TEST_PYPI_TOKEN: ${{ secrets.TEST_PYPI_TOKEN }}
-      - run:
-          name: Deploy to PyPI
-          command: python3 -m twine upload dist/* --username __token__ --password $PYPI_TOKEN
-          environment:
-            PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      # - run:
+      #     name: Deploy to PyPI
+      #     command: python3 -m twine upload dist/* --username __token__ --password $PYPI_TOKEN
+      #     environment:
+      #       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
 
 workflows:
   version: 2
