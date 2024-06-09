@@ -35,6 +35,12 @@ jobs:
       - run:
           name: Test command-line interface
           command: |
+            if pip show simplevcs >/dev/null 2>&1; then
+              echo "simplevcs is installed, uninstalling..."
+              pip uninstall -y simplevcs
+            else
+              echo "simplevcs is not installed"
+            fi
             pip install .
             SimpleVCS init /tmp/repo
 
