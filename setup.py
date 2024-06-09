@@ -7,6 +7,9 @@ def parse_requirements(filename):
     return [line.strip() for line in lines if line and not line.startswith('#')]
 
 
+instal_requires = parse_requirements('requirements.txt')
+
+
 setup(
     name='simplevcs',
     version='0.1',
@@ -16,7 +19,7 @@ setup(
             'SimpleVCS=simplevcs.simplevcs:main',
         ],
     },
-    install_requires=parse_requirements('requirements.txt'),
+    install_requires=instal_requires,
     author='Monika Monika',
     author_email='monika_sahay@yahoo.com',
     description='A minimalistic version control system',
