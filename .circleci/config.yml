@@ -39,6 +39,16 @@ jobs:
             SimpleVCS init /tmp/repo
             SimpleVCS commit /tmp/repo "Initial commit"
             SimpleVCS log /tmp/repo
+
+  deploy:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            pip install -r requirements.txt
       - run:
           name: Deploy to TestPyPI
           command: python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* --username __token__ --password $TEST_PYPI_TOKEN
@@ -51,15 +61,13 @@ jobs:
             PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
 
 workflows:
+  version: 2
   build-and-deploy:
     jobs:
-      - test
       - build:
-          requires:
-            - test
+          filters:
+            branches:
+              only: main
       - deploy:
           requires:
             - build
-          filters:
-            branches:
-              ignore: main
